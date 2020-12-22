@@ -18,8 +18,8 @@ public class ConnectionUtil {
 
 			// Replaced localhost with the AWS endpoint  then change shield with postgres
 		
-		String url = "jdbc:postgresql://localhost:5432/reimbursement";
-		//String url = "jdbc:postgresql://javafs201130.chtpcni0nkep.us-east-2.rds.amazonaws.com:5432/postgres";
+		//String url = "jdbc:postgresql://localhost:5432/reimbursement";
+		String url = "jdbc:postgresql://javafs201130.chtpcni0nkep.us-east-2.rds.amazonaws.com:5432/postgres";
 
 //		String username = "postgres";
 //		String password = "-No-No-No-";  // password removed for security reasons
