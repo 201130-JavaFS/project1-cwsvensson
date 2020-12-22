@@ -52,27 +52,27 @@ async function displayUsersFunc(){
       row.appendChild(cell3);
 
       let cell4 = document.createElement("td");
-      cell4.innerHTML = " ";
+      cell4.innerHTML = eachType.reimbResolved;
       row.appendChild(cell4);
 
       let cell5 = document.createElement("td");
-      cell5.innerHTML = " ";
+      cell5.innerHTML = eachType.reimbDesc;
       row.appendChild(cell5);
 
       let cell6 = document.createElement("td");
-      cell6.innerHTML = " ";
+      cell6.innerHTML = eachType.ersUserAuthorId.userLname;
       row.appendChild(cell6);
 
       let cell7 = document.createElement("td");
-      cell7.innerHTML = " ";
+      cell7.innerHTML = eachType.ersUserResolverId.userLname;
       row.appendChild(cell7);
 
       let cell8 = document.createElement("td");
-      cell8.innerHTML = " ";
+      cell8.innerHTML = eachType.ersTypeId.typeDesc;
       row.appendChild(cell8);
 
       let cell9 = document.createElement("td");
-      cell9.innerHTML = " ";
+      cell9.innerHTML = eachType.ersStatusId.statusDesc;
       row.appendChild(cell9);
 
       document.getElementById("userbody").appendChild(row);
