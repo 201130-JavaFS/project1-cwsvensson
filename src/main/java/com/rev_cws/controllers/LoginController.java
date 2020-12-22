@@ -39,7 +39,7 @@ public class LoginController {
 			if (loginService.login(lDTO.username, lDTO.password)) {
 				HttpSession thisSession = req.getSession();
 
-				thisSession.setAttribute("sessionUsername", lDTO);
+				thisSession.setAttribute("sessionUsername", lDTO.username);
 				thisSession.setAttribute("loggedin", true);
 
 				res.setStatus(200);

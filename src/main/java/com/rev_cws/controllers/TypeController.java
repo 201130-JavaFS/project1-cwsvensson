@@ -14,11 +14,11 @@ public class TypeController {
 	private TypeService userService = new TypeService();
 	private ObjectMapper objMap = new ObjectMapper();
 
-	public void getAllTypes(HttpServletResponse res) throws IOException {
+	public void getAllTypes(HttpServletResponse userResponse) throws IOException {
 		System.out.println("Hitting getAllTypes inside TypeController");
 		List<ErsReimbType> list = userService.letsSeeTheTypes();
 		String json = objMap.writeValueAsString(list);
-		res.getWriter().print(json);
-		res.setStatus(200);
+		userResponse.getWriter().print(json);
+		userResponse.setStatus(200);
 	}
 }

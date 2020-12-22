@@ -24,9 +24,8 @@ async function loginFunc() {
   if(resp.status===200){
     document.getElementById('login-row').innerText="YOU HAVE LOGGED IN";  
   }else{
-    document.getElementById('login-row').innerText="Login failed! Reload the page or the computer will explode!"; 
+    document.getElementById('login-row').innerText="Login failed!"; 
   }
-
 }
 
 async function displayUsersFunc(){
@@ -35,6 +34,39 @@ async function displayUsersFunc(){
   if(response.status===200){
     console.log(response);
     let data = await response.json();
+
+    let row = document.createElement("tr");
+
+    let title1   = document.createElement("td");
+    title1.innerHTML = "ID #";
+    row.appendChild(title1);
+
+    let title2   = document.createElement("td");
+    title2.innerHTML = "Login Name";
+    row.appendChild(title2);
+
+    let title3   = document.createElement("td");
+    title3.innerHTML = "Password";
+    row.appendChild(title3);
+
+    let title4   = document.createElement("td");
+    title4.innerHTML = "First Name";
+    row.appendChild(title4);
+
+    let title5   = document.createElement("td");
+    title5.innerHTML = "Last Name";
+    row.appendChild(title5);
+
+    let title6   = document.createElement("td");
+    title6.innerHTML = "User Email";
+    row.appendChild(title6);
+
+    let title7   = document.createElement("td");
+    title7.innerHTML = "User Position";
+    row.appendChild(title7);
+
+    document.getElementById("userhead").appendChild(row);
+
 
     for(let user of data){
       console.log(user);

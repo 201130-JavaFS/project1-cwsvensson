@@ -16,46 +16,54 @@ public class MasterServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 
-	private UserController allUserControl = new UserController();
-	private TypeController allTypeControl = new TypeController();
+	private UserController  userControl = new UserController();
+	private TypeController  allTypeControl = new TypeController();
 	private LoginController loginControl  = new LoginController();
 	
 
-	protected void doGet(HttpServletRequest req, HttpServletResponse res)
+	protected void doGet(HttpServletRequest userRequest, HttpServletResponse userResponse)
 				throws ServletException, IOException {
 		
-		res.setContentType("application/json");
+		userResponse.setContentType("application/json");
 		
 		// By default tomcat will send back a successful status code if it finds a
 		// servlet method.
 		// Because all requests will hit this method, we are defaulting to not found and
 		// will override for success requests.
 		
-		res.setStatus(404);
-		System.out.println("Starting URI = " + req.getRequestURI());
-		final String URI = req.getRequestURI().replace("/Reimbursement/", "");
+		userResponse.setStatus(404);
+		//System.out.println("Starting URI = " + req.getRequestURI());
+		final String URI = userRequest.getRequestURI().replace("/Reimbursement/", "");
 		System.out.println("URI is now = " + URI);
 		
 		switch (URI) {
 			
 		case "allLogins":
-			if (req.getSession(false) != null) {
-				allUserControl.getAllUsers(res);
+			if (userRequest.getSession(false) != null) {
+				userControl.getAllUsers(userResponse);
 			} else {
-				res.setStatus(403);
+				userResponse.setStatus(403);
+			}
+			break;
+
+		case "oneLogin":
+			if (userRequest.getSession(false) != null) {
+				userControl.getOneUser(userRequest, userResponse);
+			} else {
+				userResponse.setStatus(403);
 			}
 			break;
 			
 		case "allTypes":
-			if (req.getSession(false) != null) {
-				allTypeControl.getAllTypes(res);
+			if (userRequest.getSession(false) != null) {
+				allTypeControl.getAllTypes(userResponse);
 			} else {
-				res.setStatus(403);
+				userResponse.setStatus(403);
 			}
 			break;
 			
 		case "login":
-			loginControl.login(req,res);
+			loginControl.login(userRequest, userResponse);
 		}
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
