@@ -45,35 +45,35 @@ async function displayUsersFunc(){
 
       let cell2 = document.createElement("td");
       cell2.innerHTML = eachType.reimbAmount;
-      row.appendChild(cell1);
+      row.appendChild(cell2);
 
       let cell3 = document.createElement("td");
       cell3.innerHTML = eachType.reimbSubmitted;
-      row.appendChild(cell1);
+      row.appendChild(cell3);
 
       let cell4 = document.createElement("td");
       cell4.innerHTML = " ";
-      row.appendChild(cell1);
+      row.appendChild(cell4);
 
       let cell5 = document.createElement("td");
       cell5.innerHTML = " ";
-      row.appendChild(cell1);
+      row.appendChild(cell5);
 
       let cell6 = document.createElement("td");
       cell6.innerHTML = " ";
-      row.appendChild(cell1);
+      row.appendChild(cell6);
 
       let cell7 = document.createElement("td");
       cell7.innerHTML = " ";
-      row.appendChild(cell1);
+      row.appendChild(cell7);
 
       let cell8 = document.createElement("td");
       cell8.innerHTML = " ";
-      row.appendChild(cell1);
+      row.appendChild(cell8);
 
       let cell9 = document.createElement("td");
       cell9.innerHTML = " ";
-      row.appendChild(cell1);
+      row.appendChild(cell9);
 
       document.getElementById("userbody").appendChild(row);
     }
