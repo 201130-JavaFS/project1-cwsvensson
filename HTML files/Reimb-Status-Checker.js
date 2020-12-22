@@ -1,6 +1,6 @@
 const url = 'http://localhost:8080/Reimbursement/';
 
-document.getElementById("getTypesButton").addEventListener('click', displayUsersFunc);
+document.getElementById("getStatusesButton").addEventListener('click', displayUsersFunc);
 
 document.getElementById("loginbtn").addEventListener('click', loginFunc);
 
@@ -24,28 +24,27 @@ async function loginFunc() {
   if(resp.status===200){
     document.getElementById('login-row').innerText="YOU HAVE LOGGED IN";  
   }else{
-    document.getElementById('login-row').innerText="Login failed! Reload the page or the computer will explode!"; 
+    document.getElementById('login-row').innerText="Login failed!"; 
   }
-
 }
 
 async function displayUsersFunc(){
-  let response = await fetch(url+"allTypes", {credentials: 'include'});
+  let response = await fetch(url+"allStatuses", {credentials: 'include'});
 
   if(response.status===200){
     console.log(response);
     let data = await response.json();
 
-    for(let eachType of data){
-      console.log(eachType);
+    for(let eachStatus of data){
+      console.log(eachStatus);
       let row = document.createElement("tr");
 
       let cell = document.createElement("td");
-      cell.innerHTML = eachType.typeId;
+      cell.innerHTML = eachStatus.statusId;
       row.appendChild(cell);
 
       let cell2 = document.createElement("td");
-      cell2.innerHTML = eachType.typeDesc;
+      cell2.innerHTML = eachStatus.statusDesc;
       row.appendChild(cell2);
 
 

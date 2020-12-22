@@ -14,8 +14,8 @@ public class ReimbController {
 	private ReimbService reimbService = new ReimbService();
 	private ObjectMapper objMap = new ObjectMapper();
 
-	public void getAllTypes(HttpServletResponse res) throws IOException {
-		System.out.println("Hitting getAllTypes inside TypeController");
+	public void getAllReimbs(HttpServletResponse res) throws IOException {
+		System.out.println("Hitting getAllReimbs inside ReimbController");
 		List<ErsReimb> list = reimbService.letsSeeTheReimbRequests();
 		String json = objMap.writeValueAsString(list);
 		res.getWriter().print(json);

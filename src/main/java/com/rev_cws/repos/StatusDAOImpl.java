@@ -54,7 +54,7 @@ public class StatusDAOImpl implements StatusDAO {
 				ErsReimbStatus oneReimbStatus = new ErsReimbStatus();
 				
 				oneReimbStatus.setStatusId(givenId);
-				oneReimbStatus.setStatusDesc(result.getString("type_desc"));
+				oneReimbStatus.setStatusDesc(result.getString("status_desc"));
 				
 				return oneReimbStatus;
 			}

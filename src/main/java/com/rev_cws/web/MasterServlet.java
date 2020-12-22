@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 // import com.rev_cws.controllers.AvengersController;
 import com.rev_cws.controllers.LoginController;
+import com.rev_cws.controllers.ReimbController;
+import com.rev_cws.controllers.StatusController;
 import com.rev_cws.controllers.TypeController;
 import com.rev_cws.controllers.UserController;
 
@@ -18,7 +20,9 @@ public class MasterServlet extends HttpServlet{
 
 	private UserController  userControl = new UserController();
 	private TypeController  allTypeControl = new TypeController();
+	private StatusController  allStatusControl = new StatusController();
 	private LoginController loginControl  = new LoginController();
+	private ReimbController allReimbControl  = new ReimbController();
 	
 
 	protected void doGet(HttpServletRequest userRequest, HttpServletResponse userResponse)
@@ -54,9 +58,25 @@ public class MasterServlet extends HttpServlet{
 			}
 			break;
 			
+		case "allReimbursements":
+			if (userRequest.getSession(false) != null) {
+				allReimbControl.getAllReimbs(userResponse);
+			} else {
+				userResponse.setStatus(403);
+			}
+			break;
+						
 		case "allTypes":
 			if (userRequest.getSession(false) != null) {
 				allTypeControl.getAllTypes(userResponse);
+			} else {
+				userResponse.setStatus(403);
+			}
+			break;
+			
+		case "allStatuses":
+			if (userRequest.getSession(false) != null) {
+				allStatusControl.getAllStatuses(userResponse);
 			} else {
 				userResponse.setStatus(403);
 			}
