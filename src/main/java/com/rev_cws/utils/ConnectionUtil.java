@@ -18,27 +18,28 @@ public class ConnectionUtil {
 
 			// Replaced localhost with the AWS endpoint  then change shield with postgres
 		
-		String url = "jdbc:postgresql://localhost:5432/reimbursement";
-		//String url = "jdbc:postgresql://javafs201130.chtpcni0nkep.us-east-2.rds.amazonaws.com:5432/postgres";
+		//String url = "jdbc:postgresql://localhost:5432/reimbursement";
+		String url = "jdbc:postgresql://javafs201130.chtpcni0nkep.us-east-2.rds.amazonaws.com:5432/postgres";
 
 //		String username = "postgres";
-//		String password = "-No-No-No-";  // password removed for security reasons
+//		String password = "--------";  // password removed for security reasons
 		String username = System.getenv("postgreSQLusername");
-		String password = System.getenv("postgreSQLpassword");
+		//String password = System.getenv("postgreSQLpassword");
+		String password = "postgres";
 		
 		return DriverManager.getConnection(url, username, password);
 	}
 
-//	public static void main(String[] args) {
-//
-//		// Try with resources block. The try statement will stake a method that creates
-//		// a resource, that will automatically be closed at the end of the try or catch
-//	    // block. It avoids the need for a finally block.
-//		
-//		try (Connection conn = ConnectionUtil.getConnection()) {
-//			System.out.println("connection successful");
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public static void main(String[] args) {
+
+		// Try with resources block. The try statement will stake a method that creates
+		// a resource, that will automatically be closed at the end of the try or catch
+	    // block. It avoids the need for a finally block.
+		
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			System.out.println("connection successful");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

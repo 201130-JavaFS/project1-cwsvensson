@@ -38,6 +38,7 @@ public class MasterServlet extends HttpServlet{
 		userResponse.setStatus(404);
 		//System.out.println("Starting URI = " + req.getRequestURI());
 		final String URI = userRequest.getRequestURI().replace("/Reimbursement/", "");
+		//final String URI = userRequest.getRequestURI().replace("/Postgres/", "");
 		System.out.println("URI is now = " + URI);
 		
 		switch (URI) {
