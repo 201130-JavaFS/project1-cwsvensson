@@ -22,7 +22,7 @@ public class ReimbDAOImpl implements ReimbDAO {
 		// System.out.println("Hitting findAllUsers inside UserDAOImpl");
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
-			//System.out.println("findAllReimb - Trying to get all reimbusements");
+			System.out.println("findAllReimb - Trying to get all reimbusements");
 			String reimbSQL = "SELECT * FROM ers_reimb;";
 
 			Statement statement = conn.createStatement();
@@ -30,7 +30,7 @@ public class ReimbDAOImpl implements ReimbDAO {
 			List<ErsReimb> reimbList = new ArrayList<>();
 
 			ResultSet reimbResult = statement.executeQuery(reimbSQL);
-			//int cntUsers = 0;
+			int cntRecords = 0;
 
 			while (reimbResult.next()) {
 				ErsReimb oneReimb = new ErsReimb(reimbResult.getInt("reimb_id"), 
@@ -43,6 +43,8 @@ public class ReimbDAOImpl implements ReimbDAO {
 				oneReimb.setErsUserAuthorId(userDao.findUserById(reimbResult.getInt("reimb_author_id")));
 				if (reimbResult.getString("reimb_resolver_id") != null) {
 					oneReimb.setErsUserResolverId(userDao.findUserById(reimbResult.getInt("reimb_resolver_id")));
+				} else {
+					oneReimb.setErsUserResolverId(userDao.findUserById(0));
 				}
 				oneReimb.setErsStatusId(statusDao.findStatusById(reimbResult.getInt("reimb_status_id")));
 				oneReimb.setErsTypeId(typeDao.findTypeById(reimbResult.getInt("reimb_type_id")));
@@ -50,8 +52,9 @@ public class ReimbDAOImpl implements ReimbDAO {
 				
 				
 				reimbList.add(oneReimb);
+				cntRecords++;
 			}
-			//System.out.println("findAllUsers - " + cntUsers + " users found");
+			System.out.println("findAllReimb - " + cntRecords + " reimb records found");
 			return reimbList;
 
 		} catch (SQLException e) {

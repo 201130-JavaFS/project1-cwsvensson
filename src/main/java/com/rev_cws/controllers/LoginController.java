@@ -16,8 +16,9 @@ import com.rev_cws.services.LoginService;
 
 public class LoginController {
 
-	private ObjectMapper objMap       = new ObjectMapper();
-	private LoginService loginService = new LoginService();
+	private ObjectMapper   objMap         = new ObjectMapper();
+	private LoginService   loginService   = new LoginService();
+	//private UserController userController = new UserController();
 
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
@@ -38,16 +39,17 @@ public class LoginController {
 
 			String body = new String(buildTheStringBuilder);
 
-			LoginDTO lDTO = objMap.readValue(body, LoginDTO.class);
+			LoginDTO loginDTO = objMap.readValue(body, LoginDTO.class);
 
-			if (loginService.login(lDTO.username, lDTO.password)) {
+			if (loginService.login(loginDTO.username, loginDTO.password)) {
 				HttpSession thisSession = req.getSession();
 
-				thisSession.setAttribute("sessionUsername", lDTO.username);
+				thisSession.setAttribute("sessionUsername", loginDTO.username);
 				thisSession.setAttribute("loggedin", true);
 
 				res.setStatus(200);
 				res.getWriter().print("Login Successful");
+				//userController.getOneUser(req, res);
 
 			} else {
 				// getSession uses an existing session, if already there

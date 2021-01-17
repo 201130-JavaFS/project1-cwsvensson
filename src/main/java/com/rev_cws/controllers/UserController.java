@@ -26,6 +26,7 @@ public class UserController {
 	public void getOneUser(HttpServletRequest userRequest, HttpServletResponse res) throws IOException {
 		System.out.println("Hitting getOneUser inside UserController");
 		ErsUser oneUser = userService.justTheSessionUser(userRequest);
+		System.out.println("Hitting getOneUser = " + oneUser);
 		String json = objMap.writeValueAsString(oneUser);
 		res.getWriter().print(json);
 		res.setStatus(200);

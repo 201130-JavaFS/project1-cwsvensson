@@ -85,6 +85,7 @@ public class MasterServlet extends HttpServlet{
 			
 		case "login":
 			loginControl.login(userRequest, userResponse);
+			
 		}
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)

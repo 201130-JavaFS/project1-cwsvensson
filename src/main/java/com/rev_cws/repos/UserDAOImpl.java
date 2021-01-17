@@ -96,7 +96,8 @@ public class UserDAOImpl implements UserDAO {
 			sqlStatement.setString(1, userName);
 			ResultSet userResult = sqlStatement.executeQuery();
 			
-			if (userResult.next()) {
+			if (userResult.next() && userResult.getInt("user_id") > 0 ) {
+				System.out.println("Inside findUserByUserName: Found - " + userResult.getString("user_name"));
 			  ErsUser oneUser = new ErsUser(userResult.getInt("user_id"),
 					                        userResult.getString("user_name"),
 					                        userResult.getString("user_password"),
