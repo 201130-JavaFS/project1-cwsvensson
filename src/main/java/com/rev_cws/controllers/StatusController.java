@@ -15,7 +15,7 @@ public class StatusController {
 	private ObjectMapper objMap = new ObjectMapper();
 
 	public void getAllStatuses(HttpServletResponse res) throws IOException {
-		System.out.println("Hitting getAllStatuses inside StatusController");
+		// System.out.println("Hitting getAllStatuses inside StatusController");
 		List<ErsReimbStatus> list = statusService.letsSeeTheStatuses();
 		String json = objMap.writeValueAsString(list);
 		res.getWriter().print(json);

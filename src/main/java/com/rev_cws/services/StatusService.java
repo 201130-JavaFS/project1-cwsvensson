@@ -11,7 +11,7 @@ public class StatusService {
 	private StatusDAO statusDao = new StatusDAOImpl();
 	
 	public List<ErsReimbStatus> letsSeeTheStatuses() {
-		System.out.println("Hitting letsSeeTheTypes inside TypeService");
+		// System.out.println("Hitting letsSeeTheTypes inside TypeService");
 		return statusDao.findAllStatuses();
 	}
 }

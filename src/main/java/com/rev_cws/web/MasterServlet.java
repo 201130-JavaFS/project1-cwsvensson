@@ -37,9 +37,27 @@ public class MasterServlet extends HttpServlet{
 		
 		userResponse.setStatus(404);
 		//System.out.println("Starting URI = " + req.getRequestURI());
-		final String URI = userRequest.getRequestURI().replace("/Reimbursement/", "");
-		//final String URI = userRequest.getRequestURI().replace("/Postgres/", "");
+		String URI = userRequest.getRequestURI().replace("/Reimbursement/", "");
+		int URI_subId = 0;
+		
 		System.out.println("URI is now = " + URI);
+		
+		try {
+			//System.out.println(URI.substring(0,16));
+			if (URI.length() > 15 &&  URI.substring(0,16).equals("oneUsersTickets/")) {
+				URI = URI.replace("oneUsersTickets/", "");
+				try {
+					URI_subId = Integer.parseInt(URI);
+				} catch (NumberFormatException e) {
+	
+				}
+				URI = "oneUsersTickets";
+				System.out.println("URI = "+ URI + ", URI_subId = " + URI_subId);
+				
+			}
+		} catch (Exception e) {
+			
+		}
 		
 		switch (URI) {
 			
@@ -59,9 +77,17 @@ public class MasterServlet extends HttpServlet{
 			}
 			break;
 			
-		case "allReimbursements":
+		case "allTickets":
 			if (userRequest.getSession(false) != null) {
 				allReimbControl.getAllReimbs(userResponse);
+			} else {
+				userResponse.setStatus(403);
+			}
+			break;
+						
+		case "oneUsersTickets":
+			if (userRequest.getSession(false) != null) {
+				allReimbControl.getOneUsersReimbs(userResponse, URI_subId);
 			} else {
 				userResponse.setStatus(403);
 			}
@@ -83,9 +109,21 @@ public class MasterServlet extends HttpServlet{
 			}
 			break;
 			
+		case "newTicket":
+			if (userRequest.getSession(false) != null) {
+				allReimbControl.postNewTicket(userRequest, userResponse);
+			} else {
+				userResponse.setStatus(403);
+			}
+			break;
+			
 		case "login":
 			loginControl.login(userRequest, userResponse);
 			
+			break;
+			
+		case "logout":
+			loginControl.logout(userRequest, userResponse);
 		}
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)

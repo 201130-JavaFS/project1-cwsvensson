@@ -15,7 +15,7 @@ public class TypeController {
 	private ObjectMapper objMap = new ObjectMapper();
 
 	public void getAllTypes(HttpServletResponse userResponse) throws IOException {
-		System.out.println("Hitting getAllTypes inside TypeController");
+		// System.out.println("Hitting getAllTypes inside TypeController");
 		List<ErsReimbType> list = userService.letsSeeTheTypes();
 		String json = objMap.writeValueAsString(list);
 		userResponse.getWriter().print(json);

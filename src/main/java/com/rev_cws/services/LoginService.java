@@ -13,23 +13,29 @@ public class LoginService {
 
 	public boolean login(String username, String password) {
 
-		System.out.println("LoginService: Sending to - findUserByUserName");
+		// System.out.println("LoginService: Sending to - findUserByUserName");
 		ErsUser oneUser = userDao.findUserByUserName(username);
 		
-		if (oneUser.getUserId() <= 0) {
-			System.out.println("LoginService: No user found.");
+		try {
+			if (oneUser.getUserId() <= 0) {
+				// System.out.println("LoginService: No user found.");
+				return false;
+			}
+			
+		} catch (Exception e ) {
 			return false;
 		}
+		
 
 		try {
 			String foundPassword = oneUser.getUserPassword();
 
-			System.out.println("LoginService: retrieved password = " + foundPassword);
+			// System.out.println("LoginService: retrieved password = " + foundPassword);
 
 			String encryptedPassword = "";
 			try {
 				encryptedPassword = EncryptDecrypt.encrypt(password);
-				System.out.println("Checking against: '" + password + "' and '" + encryptedPassword + "'");
+				// System.out.println("Checking against: '" + password + "' and '" + encryptedPassword + "'");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -38,7 +44,7 @@ public class LoginService {
 				System.out.println("LoginService: Good password.");
 
 				if (password.equals(foundPassword)) {
-					System.out.println("LoginService.login - Trying to update non encrypted password");
+					// System.out.println("LoginService.login - Trying to update non encrypted password");
 					if (!(userDao.updatePassword(username, encryptedPassword))) {
 						System.out.println("Warning - DB password not updated");
 					}
@@ -47,7 +53,8 @@ public class LoginService {
 			}
 
 		} catch (Exception e) {
-			System.out.println("LoginService: No Record Returned - Caught in Catch block.");
+			// System.out.println("LoginService: No Record Returned - Caught in Catch block.");
+			e.printStackTrace();
 		}
 		return false;
 	}

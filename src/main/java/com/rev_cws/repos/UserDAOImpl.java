@@ -29,7 +29,6 @@ public class UserDAOImpl implements UserDAO {
 			List<ErsUser> userList = new ArrayList<>();
 
 			ResultSet userResult = statement.executeQuery(userSQL);
-			//int cntUsers = 0;
 
 			while (userResult.next()) {
 				ErsUser oneUser = new ErsUser(userResult.getInt("user_id"), 
@@ -42,7 +41,7 @@ public class UserDAOImpl implements UserDAO {
 				if (userResult.getString("user_role_id") != null) {
 					oneUser.setErsUserRoleId(userRoleDao.findRoleById(userResult.getString("user_role_id")));
 				}
-				//cntUsers++;
+				
 				userList.add(oneUser);
 			}
 			//System.out.println("findAllUsers - " + cntUsers + " users found");
@@ -58,7 +57,7 @@ public class UserDAOImpl implements UserDAO {
 	public ErsUser findUserById(int id) {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
-			System.out.println("findUserById - Trying to get one user");
+			// System.out.println("findUserById - Trying to get one user");
 			String userSQL = "SELECT * FROM ers_user WHERE user_id = ?;";
 
 			PreparedStatement sqlStatement = conn.prepareStatement(userSQL);
@@ -89,7 +88,7 @@ public class UserDAOImpl implements UserDAO {
 	public ErsUser findUserByUserName(String userName) {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
-			System.out.println("findUserByUserName - Trying to get one user");
+			// System.out.println("findUserByUserName - Trying to get one user");
 			String userSQL = "SELECT * FROM ers_user WHERE user_name = ?;";
 
 			PreparedStatement sqlStatement = conn.prepareStatement(userSQL);
@@ -97,7 +96,8 @@ public class UserDAOImpl implements UserDAO {
 			ResultSet userResult = sqlStatement.executeQuery();
 			
 			if (userResult.next() && userResult.getInt("user_id") > 0 ) {
-				System.out.println("Inside findUserByUserName: Found - " + userResult.getString("user_name"));
+			// System.out.println("Inside findUserByUserName: Found - " + userResult.getString("user_name"));
+				
 			  ErsUser oneUser = new ErsUser(userResult.getInt("user_id"),
 					                        userResult.getString("user_name"),
 					                        userResult.getString("user_password"),
@@ -121,7 +121,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean updatePassword(String userName, String newPassword) {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
-			System.out.println("updatePassword - Trying to update one user's password");
+			// System.out.println("updatePassword - Trying to update one user's password");
 			String userSQL = "UPDATE ers_user Set user_password = ? WHERE user_name = ?;";
 
 			PreparedStatement sqlStatement = conn.prepareStatement(userSQL);

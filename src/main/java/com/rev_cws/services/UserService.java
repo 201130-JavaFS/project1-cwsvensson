@@ -19,7 +19,7 @@ public class UserService {
 	}
 
 	public ErsUser justTheSessionUser(HttpServletRequest userRequest) {
-		System.out.println("Hitting justTheSessionUser inside UserService");
+		// System.out.println("Hitting justTheSessionUser inside UserService");
 		
 		String thisUser = null;
 		HttpSession thisSession = userRequest.getSession(false);

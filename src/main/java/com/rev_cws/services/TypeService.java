@@ -11,7 +11,7 @@ public class TypeService {
 	private TypeDAO typeDao = new TypeDAOImpl();
 	
 	public List<ErsReimbType> letsSeeTheTypes() {
-		System.out.println("Hitting letsSeeTheTypes inside TypeService");
+		// System.out.println("Hitting letsSeeTheTypes inside TypeService");
 		return typeDao.findAllTypes();
 	}
 }

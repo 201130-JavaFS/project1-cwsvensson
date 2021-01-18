@@ -54,9 +54,6 @@ public class ErsReimb {
 		return reimbId;
 	}
 
-//	public void setReimbId(int reimbId) {
-//		this.reimbId = reimbId;
-//	}
 
 	public BigDecimal getReimbAmount() {
 		return reimbAmount;
@@ -70,17 +67,9 @@ public class ErsReimb {
 		return reimbSubmitted;
 	}
 
-//	public void setReimbSubmitted(Timestamp reimbSubmitted) {
-//		this.reimbSubmitted = reimbSubmitted;
-//	}
-
 	public Timestamp getReimbResolved() {
 		return reimbResolved;
 	}
-
-//	public void setReimbResolved(Timestamp reimbResolved) {
-//		this.reimbResolved = reimbResolved;
-//	}
 
 	public String getReimbDesc() {
 		return reimbDesc;
@@ -93,10 +82,6 @@ public class ErsReimb {
 	public String getReimbReceipt() {
 		return reimbReceipt;
 	}
-
-//	public void setReimbReceipt(String reimbReceipt) {
-//		this.reimbReceipt = reimbReceipt;
-//	}
 
 	public ErsUser getErsUserAuthorId() {
 		return ersUserAuthorId;
@@ -130,22 +115,6 @@ public class ErsReimb {
 		this.ersTypeId = ersTypeId;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((ersStatusId == null) ? 0 : ersStatusId.hashCode());
-		result = prime * result + ((ersTypeId == null) ? 0 : ersTypeId.hashCode());
-		result = prime * result + ((ersUserAuthorId == null) ? 0 : ersUserAuthorId.hashCode());
-		result = prime * result + ((ersUserResolverId == null) ? 0 : ersUserResolverId.hashCode());
-		result = prime * result + ((reimbAmount == null) ? 0 : reimbAmount.hashCode());
-		result = prime * result + ((reimbDesc == null) ? 0 : reimbDesc.hashCode());
-		result = prime * result + reimbId;
-		result = prime * result + ((reimbReceipt == null) ? 0 : reimbReceipt.hashCode());
-		result = prime * result + ((reimbResolved == null) ? 0 : reimbResolved.hashCode());
-		result = prime * result + ((reimbSubmitted == null) ? 0 : reimbSubmitted.hashCode());
-		return result;
-	}
 
 	@Override
 	public boolean equals(Object obj) {

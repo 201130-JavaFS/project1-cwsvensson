@@ -18,7 +18,6 @@ public class LoginController {
 
 	private ObjectMapper   objMap         = new ObjectMapper();
 	private LoginService   loginService   = new LoginService();
-	//private UserController userController = new UserController();
 
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
@@ -62,5 +61,17 @@ public class LoginController {
 				res.getWriter().print("Login failed");
 			}
 		}
+	}
+	
+	public void logout(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		// Invalidates anything, if it gets here.
+		
+		HttpSession thisSession = req.getSession(false);
+		
+		thisSession.invalidate(); // logs the user out
+		
+		res.setStatus(200);
+		res.getWriter().print("Logout done.");
+		
 	}
 }

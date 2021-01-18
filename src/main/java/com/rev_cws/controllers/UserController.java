@@ -16,7 +16,7 @@ public class UserController {
 	private ObjectMapper objMap = new ObjectMapper();
 
 	public void getAllUsers(HttpServletResponse res) throws IOException {
-		System.out.println("Hitting getAllUsers inside UserController");
+		// System.out.println("Hitting getAllUsers inside UserController");
 		List<ErsUser> list = userService.letsSeeTheUsers();
 		String json = objMap.writeValueAsString(list);
 		res.getWriter().print(json);
@@ -24,9 +24,9 @@ public class UserController {
 	}
 
 	public void getOneUser(HttpServletRequest userRequest, HttpServletResponse res) throws IOException {
-		System.out.println("Hitting getOneUser inside UserController");
+		// System.out.println("Hitting getOneUser inside UserController");
 		ErsUser oneUser = userService.justTheSessionUser(userRequest);
-		System.out.println("Hitting getOneUser = " + oneUser);
+		// System.out.println("Hitting getOneUser = " + oneUser);
 		String json = objMap.writeValueAsString(oneUser);
 		res.getWriter().print(json);
 		res.setStatus(200);
