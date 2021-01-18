@@ -12,14 +12,14 @@ public class ReimbService {
 	
 	private ReimbDAO reimbDao = new ReimbDAOImpl();
 	
-	public List<ErsReimb> letsSeeTheReimbRequests() {
+	public List<ErsReimb> letsSeeTheReimbRequests(int uri_subId) {
 		// System.out.println("Hitting letsSeeTheReimbRequests inside ReimbService");
-		return reimbDao.findAllReimb();
+		return reimbDao.findAllReimb(uri_subId);
 	}
 
-	public List<ErsReimb> letsSeeOneUsersReimbRequests(int URI_subId) {
+	public List<ErsReimb> letsSeeOneUsersReimbRequests(int uri_subId) {
 		// System.out.println("Hitting letsSeeOneUsersReimbRequests inside ReimbService");
-		return reimbDao.findReimbByEmployee(URI_subId);
+		return reimbDao.findReimbByEmployee(uri_subId);
 	}
 	
 	public boolean letsPostOneReimbRequest(ReimbDTO reimbDTO) {

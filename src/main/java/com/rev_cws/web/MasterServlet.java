@@ -43,7 +43,6 @@ public class MasterServlet extends HttpServlet{
 		System.out.println("URI is now = " + URI);
 		
 		try {
-			//System.out.println(URI.substring(0,16));
 			if (URI.length() > 15 &&  URI.substring(0,16).equals("oneUsersTickets/")) {
 				URI = URI.replace("oneUsersTickets/", "");
 				try {
@@ -52,13 +51,26 @@ public class MasterServlet extends HttpServlet{
 	
 				}
 				URI = "oneUsersTickets";
-				System.out.println("URI = "+ URI + ", URI_subId = " + URI_subId);
+				// System.out.println("URI = "+ URI + ", URI_subId = " + URI_subId);
 				
+			}
+		} catch (Exception e) {	
+		}
+		
+		try {
+			if (URI.length() > 10 &&  URI.substring(0,11).equals("allTickets/")) {
+				URI = URI.replace("allTickets/", "");
+				try {
+					URI_subId = Integer.parseInt(URI);
+				} catch (NumberFormatException e) {
+	
+				}
+				URI = "allTickets";
+				System.out.println("URI = "+ URI + ", URI_subId = " + URI_subId);
 			}
 		} catch (Exception e) {
 			
 		}
-		
 		switch (URI) {
 			
 		case "allLogins":
@@ -79,7 +91,7 @@ public class MasterServlet extends HttpServlet{
 			
 		case "allTickets":
 			if (userRequest.getSession(false) != null) {
-				allReimbControl.getAllReimbs(userResponse);
+				allReimbControl.getAllReimbs(userResponse, URI_subId);
 			} else {
 				userResponse.setStatus(403);
 			}

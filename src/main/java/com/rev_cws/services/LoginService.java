@@ -41,12 +41,12 @@ public class LoginService {
 			}
 
 			if (password.equals(foundPassword) || encryptedPassword.equals(foundPassword)) {
-				System.out.println("LoginService: Good password.");
+				// System.out.println("LoginService: Good password.");
 
 				if (password.equals(foundPassword)) {
 					// System.out.println("LoginService.login - Trying to update non encrypted password");
 					if (!(userDao.updatePassword(username, encryptedPassword))) {
-						System.out.println("Warning - DB password not updated");
+						// System.out.println("Warning - DB password not updated");
 					}
 				}
 				return true;

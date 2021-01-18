@@ -7,7 +7,7 @@ import com.rev_cws.models.ReimbDTO;
 
 public interface ReimbDAO {
 
-	public List<ErsReimb>  findAllReimb();
+	public List<ErsReimb>  findAllReimb(int uri_resolverId);
 	public ErsReimb findReimbById(int id);
 	public List<ErsReimb> findReimbByEmployee(int authorId);
 	public boolean postReimb(ReimbDTO reimbDTO);

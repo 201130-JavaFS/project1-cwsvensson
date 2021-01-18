@@ -26,7 +26,7 @@ public class UserService {
 		if (thisSession != null) {
 			thisUser = (String) thisSession.getAttribute("sessionUsername");
 		}
-		System.out.println("Inside UserService - Username = " + thisUser);
+		// System.out.println("Inside UserService - Username = " + thisUser);
 		
 		return userDao.findUserByUserName(thisUser);
 	}
