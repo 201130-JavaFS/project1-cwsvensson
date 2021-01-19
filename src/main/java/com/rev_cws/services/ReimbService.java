@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.rev_cws.models.ErsReimb;
 import com.rev_cws.models.ReimbDTO;
+import com.rev_cws.models.ReimbUpdateDTO;
 import com.rev_cws.repos.ReimbDAO;
 import com.rev_cws.repos.ReimbDAOImpl;
 
@@ -25,6 +26,11 @@ public class ReimbService {
 	public boolean letsPostOneReimbRequest(ReimbDTO reimbDTO) {
 		// System.out.println("Hitting letsPostOneReimbRequest inside ReimbService");
 		return reimbDao.postReimb(reimbDTO);
+	}
+
+	public boolean letsUpdateOneReimbRequest(ReimbUpdateDTO reimbUpdateDTO) {
+		System.out.println("Hitting letsUpdateOneReimbRequest inside ReimbService");
+		return reimbDao.updateReimb(reimbUpdateDTO);
 	}
 	
 }

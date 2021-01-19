@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.rev_cws.models.ErsReimb;
 import com.rev_cws.models.ReimbDTO;
+import com.rev_cws.models.ReimbUpdateDTO;
 import com.rev_cws.utils.ConnectionUtil;
 
 public class ReimbDAOImpl implements ReimbDAO {
@@ -158,5 +159,32 @@ public class ReimbDAOImpl implements ReimbDAO {
 		
 		return (insertCnt == 1);
 	}
-	
+
+	@Override
+	public boolean updateReimb(ReimbUpdateDTO reimbUpdateDTO) {
+		// System.out.println("Hitting postReimb inside ReimbDAOImpl");
+
+		int updateCnt = 0;
+
+		try (Connection conn = ConnectionUtil.getConnection()) {
+
+			String reimbUpdateSQL = "UPDATE ers_reimb "
+					+ "SET reimb_resolver_id = ?, reimb_status_id = ? "
+					+ "WHERE reimb_id = ?;";
+			PreparedStatement sqlStatement = conn.prepareStatement(reimbUpdateSQL);
+
+			sqlStatement.setInt(1, Integer.parseInt(reimbUpdateDTO.reimbResolverIdFE)); // All data points are String - 
+			sqlStatement.setInt(2, Integer.parseInt(reimbUpdateDTO.reimbStatusIdFE));   // ...from the JSON
+			sqlStatement.setInt(3, Integer.parseInt(reimbUpdateDTO.reimbIdFE));
+
+			System.out.println("updateReimb - sqlStatement = " + sqlStatement);
+
+			updateCnt = sqlStatement.executeUpdate();
+			System.out.println("postReimb - insertCnt = " + updateCnt);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return (updateCnt == 1);
+	}
 }

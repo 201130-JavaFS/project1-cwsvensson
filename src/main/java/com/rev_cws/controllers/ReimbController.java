@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rev_cws.models.ErsReimb;
 import com.rev_cws.models.ReimbDTO;
+import com.rev_cws.models.ReimbUpdateDTO;
 import com.rev_cws.services.ReimbService;
 
 public class ReimbController {
@@ -53,6 +54,36 @@ public class ReimbController {
 			System.out.println("ReimbController: postNewTicket - reimbDTO: " + reimbDTO);
 			
 			if (reimbService.letsPostOneReimbRequest(reimbDTO)) {
+				userResponse.setStatus(200);
+				userResponse.getWriter().print("Reimbursement Post Successful");
+			
+			} else {
+				userResponse.setStatus(401);
+				userResponse.getWriter().print("Reimbursement Post failed");
+			}
+		}
+	}
+
+	public void updateTicket(HttpServletRequest userRequest, HttpServletResponse userResponse) throws IOException {
+		System.out.println("Hitting updateTicket inside ReimbController");
+		
+		if (userRequest.getMethod().equals("POST")) {
+			
+			BufferedReader reader = userRequest.getReader();
+			StringBuilder buildTheStringBuilder = new StringBuilder();
+			String line = reader.readLine();
+			
+			while (line != null) {
+				buildTheStringBuilder.append(line);
+				line = reader.readLine();
+			}
+
+			String body = new String(buildTheStringBuilder);
+			ReimbUpdateDTO reimbUpdateDTO = objMap.readValue(body, ReimbUpdateDTO.class);
+			
+			System.out.println("ReimbController: postNewTicket - reimbUpdateDTO: " + reimbUpdateDTO);
+			
+			if (reimbService.letsUpdateOneReimbRequest(reimbUpdateDTO)) {
 				userResponse.setStatus(200);
 				userResponse.getWriter().print("Reimbursement Post Successful");
 			

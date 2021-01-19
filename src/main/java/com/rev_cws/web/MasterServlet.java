@@ -71,6 +71,11 @@ public class MasterServlet extends HttpServlet{
 		} catch (Exception e) {
 			
 		}
+		
+		//-------------------------------------------//
+		//   Find out which Servlet gets the data.   //
+		//-------------------------------------------//
+		
 		switch (URI) {
 			
 		case "allLogins":
@@ -124,6 +129,14 @@ public class MasterServlet extends HttpServlet{
 		case "newTicket":
 			if (userRequest.getSession(false) != null) {
 				allReimbControl.postNewTicket(userRequest, userResponse);
+			} else {
+				userResponse.setStatus(403);
+			}
+			break;
+			
+		case "processTicket":
+			if (userRequest.getSession(false) != null) {
+				allReimbControl.updateTicket(userRequest, userResponse);
 			} else {
 				userResponse.setStatus(403);
 			}
