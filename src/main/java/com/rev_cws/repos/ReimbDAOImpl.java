@@ -177,10 +177,10 @@ public class ReimbDAOImpl implements ReimbDAO {
 			sqlStatement.setInt(2, Integer.parseInt(reimbUpdateDTO.reimbStatusIdFE));   // ...from the JSON
 			sqlStatement.setInt(3, Integer.parseInt(reimbUpdateDTO.reimbIdFE));
 
-			System.out.println("updateReimb - sqlStatement = " + sqlStatement);
+			// System.out.println("updateReimb - sqlStatement = " + sqlStatement);
 
 			updateCnt = sqlStatement.executeUpdate();
-			System.out.println("postReimb - insertCnt = " + updateCnt);
+			// System.out.println("postReimb - insertCnt = " + updateCnt);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

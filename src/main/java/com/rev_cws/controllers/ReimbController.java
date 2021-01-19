@@ -51,7 +51,7 @@ public class ReimbController {
 			String body = new String(buildTheStringBuilder);
 			ReimbDTO reimbDTO = objMap.readValue(body, ReimbDTO.class);
 			
-			System.out.println("ReimbController: postNewTicket - reimbDTO: " + reimbDTO);
+			//System.out.println("ReimbController: postNewTicket - reimbDTO: " + reimbDTO);
 			
 			if (reimbService.letsPostOneReimbRequest(reimbDTO)) {
 				userResponse.setStatus(200);
@@ -65,7 +65,7 @@ public class ReimbController {
 	}
 
 	public void updateTicket(HttpServletRequest userRequest, HttpServletResponse userResponse) throws IOException {
-		System.out.println("Hitting updateTicket inside ReimbController");
+		//System.out.println("Hitting updateTicket inside ReimbController");
 		
 		if (userRequest.getMethod().equals("POST")) {
 			
@@ -81,7 +81,7 @@ public class ReimbController {
 			String body = new String(buildTheStringBuilder);
 			ReimbUpdateDTO reimbUpdateDTO = objMap.readValue(body, ReimbUpdateDTO.class);
 			
-			System.out.println("ReimbController: postNewTicket - reimbUpdateDTO: " + reimbUpdateDTO);
+			//System.out.println("ReimbController: postNewTicket - reimbUpdateDTO: " + reimbUpdateDTO);
 			
 			if (reimbService.letsUpdateOneReimbRequest(reimbUpdateDTO)) {
 				userResponse.setStatus(200);
