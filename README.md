@@ -42,11 +42,13 @@ Run the application on a Tomcat 9 server.
 Open Employee_Reimbursment_System.html from the HTML folder.
 
 ## Usage:
-2 Employee logins are provided: 
+2 Employee logins are provided:
+
 Employee Employee 
 Employee2 Employee2
 
 Also 2 Manager login are provided: 
+
 Manager Manager 
 Manager2 Manager2
 
