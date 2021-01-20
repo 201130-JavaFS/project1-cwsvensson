@@ -25,14 +25,11 @@ Version Control:
 Git
 
 ## Features
-List of features ready and TODOs for future development
-
 Automatic password encryption via the Blowfish algorithm.
 JavaScript managed input boxes.
 JavaScript managed displays and drop-down selectors.
 
 ## To-do list:
-
 Scroll paging for large displays
 Clearing details from input boxes after processing new requests.
 
