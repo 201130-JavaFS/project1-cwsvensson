@@ -30,7 +30,7 @@ JavaScript managed input boxes.
 JavaScript managed displays and drop-down selectors.
 
 ## To-do list:
-Scroll paging for large displays
+Scroll paging for large displays.  
 Clearing details from input boxes after processing new requests.
 
 ## Getting Started:
