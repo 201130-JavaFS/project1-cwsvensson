@@ -6,11 +6,11 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ## Technologies Used
 Backend:
-Java
-PostgreSQL
-Maven
-JUnit
-Log4j
+Java,
+PostgreSQL,
+Maven,
+JUnit,
+Log4j,
 Tomcat
 
 Frontend:
@@ -24,19 +24,19 @@ AWS RDS
 Version Control:
 Git
 
-###Features
+##Features
 List of features ready and TODOs for future development
 
 Automatic password encryption via the Blowfish algorithm.
 JavaScript managed input boxes.
 JavaScript managed displays and drop-down selectors.
 
-###To-do list:
+##To-do list:
 
 Wow improvement to be done 1
 Wow improvement to be done 2
 
-###Getting Started:
+##Getting Started:
 Copy the repository https url by pressing the green clone button, or copy the url.
 Clone the repository by opening Git Bash at the desired location and running the clone command:
 git clone <insert git url>
@@ -44,7 +44,7 @@ Open IDE (Spring Tool Suite) that can run a Java Maven project and import as an 
 Run the application on a Tomcat 9 server.
 Open Employee_Reimbursment_System.html from the HTML folder.
 
-###Usage:
+##Usage:
 2 Employee logins are provided:
 Employee Employee
 Employee2 Employee2
@@ -55,7 +55,7 @@ Manager2 Manager2
 
 Once logged in, follow the menu given.
 
-###Reimbursement Types / Manager Processing Types:
+##Reimbursement Types / Manager Processing Types:
 Available in drop-downs.  For the Manager Processing Types, 2 selections leave the ticket open and 2 close the request.
 ------------------------------------------------------------------------------------------------------------------------------------
 
