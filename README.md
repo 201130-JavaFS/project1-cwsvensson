@@ -36,17 +36,17 @@ Clearing details from input boxes after processing new requests.
 ## Getting Started:
 Copy the repository https url by pressing the green clone button, or copy the url.  
 Clone the repository by opening Git Bash at the desired location and running the git clone command:  
-   e.g. git clone <insert git url>  
+   e.g. git clone -insert git url here 
 Open IDE (Spring Tool Suite) that can run a Java Maven project and import as an existing Maven project.  
 Run the application on a Tomcat 9 server.
 Open Employee_Reimbursment_System.html from the HTML folder.
 
 ## Usage:
-2 Employee logins are provided:
+2 employee logins are provided (username and password):
 Employee Employee, and
 Employee2 Employee2
 
-Also 2 Manager login are provided: 
+Also 2 manager login are provided: 
 Manager Manager, and
 Manager2 Manager2
 
