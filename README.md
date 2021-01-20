@@ -43,11 +43,11 @@ Open Employee_Reimbursment_System.html from the HTML folder.
 
 ## Usage:
 2 Employee logins are provided:
-Employee Employee
+Employee Employee, and
 Employee2 Employee2
 
 Also 2 Manager login are provided: 
-Manager Manager 
+Manager Manager, and
 Manager2 Manager2
 
 Once logged in, follow the menu selectios.
