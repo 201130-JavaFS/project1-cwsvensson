@@ -25,32 +25,32 @@ Version Control:
 Git
 
 ## Features
-Automatic password encryption via the Blowfish algorithm.
-JavaScript managed input boxes.
-JavaScript managed displays and drop-down selectors.
+Automatic password encryption via the Blowfish algorithm.  
+JavaScript managed input boxes.  
+JavaScript managed displays and drop-down selectors.  
 
 ## To-do list:
 Scroll paging for large displays.  
 Clearing details from input boxes after processing new requests.
 
 ## Getting Started:
-Copy the repository https url by pressing the green clone button, or copy the url.
-Clone the repository by opening Git Bash at the desired location and running the clone command:
-git clone <insert git url>
-Open IDE (Spring Tool Suite) that can run a Java Maven project and import as an existing Maven project.
+Copy the repository https url by pressing the green clone button, or copy the url.  
+Clone the repository by opening Git Bash at the desired location and running the git clone command:  
+   e.g. git clone <insert git url>  
+Open IDE (Spring Tool Suite) that can run a Java Maven project and import as an existing Maven project.  
 Run the application on a Tomcat 9 server.
 Open Employee_Reimbursment_System.html from the HTML folder.
 
 ## Usage:
-2 Employee logins are provided:
-Employee Employee
+2 Employee logins are provided: 
+Employee Employee 
 Employee2 Employee2
 
-Also 2 Manager login are provided:
-Manager Manager
+Also 2 Manager login are provided: 
+Manager Manager 
 Manager2 Manager2
 
-Once logged in, follow the menu given.
+Once logged in, follow the menu selectios.
 
 ## Reimbursement Types / Manager Processing Types:
 Available in drop-downs.  For the Manager Processing Types, 2 selections leave the ticket open and 2 close the request.
